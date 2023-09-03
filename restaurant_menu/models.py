@@ -16,6 +16,11 @@ STATUS = (
     (1, "Available")
 )
 
+PER_POUND = (
+    (0, "Regular"),
+    (1, "Per Pound")
+)
+
 class Item(models.Model):
     # Unique prevents duplicated meals
     meal = models.CharField(max_length=1000, unique=True)
@@ -26,6 +31,8 @@ class Item(models.Model):
     status = models.IntegerField(choices=STATUS, default=0)
     date_created = models.DateTimeField(auto_now_add=True)
     date_updated = models.DateTimeField(auto_now=True)
+    meal_photo = models.ImageField(upload_to='images/', default="empty")
+    per_pound = models.IntegerField(choices=PER_POUND, default=0)
 
     def __str__(self):
         return self.meal
