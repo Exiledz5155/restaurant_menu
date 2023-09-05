@@ -19,12 +19,8 @@ class MenuItemDetail(generic.DetailView):
 
 class About(generic.ListView):
     # queryset = Item.objects.order_by("meal")
+    model = Item
     template_name = "about.html"
 
+
     # get query set override
-    def get_queryset(self):
-        queryset = super().get_queryset()
-        term = self.kwargs.get('term')
-        if term:
-            return queryset.filter(body__icontains=term)
-        return queryset.none()
