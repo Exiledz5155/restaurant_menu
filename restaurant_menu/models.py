@@ -5,10 +5,9 @@ from django.contrib.auth.models import User
 
 # backend, frontend
 MEAL_TYPE = (
-    ("starters", "Starters"),
-    ("salads", "Salads"),
-    ("main_dishes", "Main Dishes"),
-    ("desserts", "Desserts")
+    ("cold_items", "Cold Items"),
+    ("bbq_items", "BBQ Items"),
+    ("specials", "Specials")
 )
 
 STATUS = (
