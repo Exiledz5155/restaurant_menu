@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from django.views import generic
-from .models import Item, MEAL_TYPE
+from .models import Item, MEAL_TYPE, Info
 
 
 # Create your views here.
@@ -19,8 +19,12 @@ class MenuItemDetail(generic.DetailView):
 
 class About(generic.ListView):
     # queryset = Item.objects.order_by("meal")
-    model = Item
+    model = Info
     template_name = "about.html"
+
+    def get_context_data(self, *, object_list=None, **kwargs):
+        context = super().get_context_data(**kwargs)
+        return context
 
 
     # get query set override
