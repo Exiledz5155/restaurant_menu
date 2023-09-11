@@ -1,16 +1,17 @@
 {% extends 'base.html' %}
 {% block content %}
     <div class="container">
-        <h1 class="pt-5">{{ item.meal }}</h1>
-            <a href="{{ item.meal_photo.url }}">
-                <img src="{{ item.meal_photo.url }}" alt="Error retrieving photo" style="width:40%">
-            </a>
-        <p>{{ item.description }}</p>
-        {% if item.per_pound == 0 %}
-            <span class="badge bg-primary rounded-pill">${{ item.price }}</span>
-        {% else %}
-            <span class="badge bg-primary rounded-pill">${{ item.price }}/lbs</span>
-        {% endif %}
+        <div class="text-center">
+        <h1 class="pt-5">{{ item.meal }}
+            {% if item.per_pound == 0 %}
+                <span class="badge bg-primary rounded-pill">${{ item.price }}</span>
+            {% else %}
+                <span class="badge bg-primary rounded-pill">${{ item.price }}/lbs</span>
+            {% endif %}
+        </h1>
+            <p class="">{{ item.description }}</p>
+            <img src="{{ item.meal_photo.url }}" class="img-thumbnail" alt="{{ item.meal }}">
+        </div>
     </div>
 {% endblock content %}
 
